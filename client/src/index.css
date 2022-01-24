@@ -31,3 +31,40 @@ code {
 	/* height: 10%; */
 	width: 30%;
 }
+
+.auth-quickview {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form {
+   padding: 50px 100px;
+   border: 2px solid black;
+   background-color: white;
+}
+
+.auth-block {
+    padding: 20px 30px;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.auth-block input {
+    font-weight: 1.5rem;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.auth-form button {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 20px 30px;
+}

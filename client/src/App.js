@@ -4,20 +4,19 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
 	return (
-		<>
-			<BrowserRouter>
-				<Navbar />
-				<Routes>
-					<Route path="/" element={<Home />}></Route>
-					{/* <Route path="/" element={<Home />}></Route>
-					<Route path="/" element={<Home />}></Route> */}
-				</Routes>
-			</BrowserRouter>
-			<div className="container">
-				<Home />
-			</div>
-		</>
-	);
+        <>
+            <div className="container">
+                <BrowserRouter>
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<Home />}></Route>
+                        {/* <Route path="/" element={<Home />}></Route>
+                        <Route path="/" element={<Home />}></Route> */}
+                    </Routes>
+                </BrowserRouter>
+            </div>
+	    </>
+    );
 };
 
 export default App;
