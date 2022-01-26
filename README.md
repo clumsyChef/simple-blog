@@ -1,4 +1,4 @@
-# simple-blog
+# Simple Blog
 Simple Blog for practicing the MERN, it might become complicated later on.
 
 Commands:
