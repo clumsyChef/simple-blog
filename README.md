@@ -5,8 +5,8 @@ Commands:
 
   To install dependencies: <br />
     1. cd simple-blog && npm install <br />
-    2. cd client && npm install <br />
-    3. cd .. (Get back to original folder)
+    2. cd .. (Get back to original folder)
+    3. cd client && npm install <br />
 
  
   To Run Project:<br />
