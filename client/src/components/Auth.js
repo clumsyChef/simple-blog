@@ -1,59 +1,32 @@
 import { useState } from "react";
+import Login from "./Login";
+import Signup from "./SignUp";
 
-const Auth = () => {
-    
-    const [login, setLogin] = useState(true);
+const Auth = (props) => {
+	const [login, setLogin] = useState(true);
 
-    const closeAuth = () => {
-//        document.querySelector(".auth-quickview").remove();
-    }
+	const closeAuth = (e) => {
+		e.target.classList.add("hide-auth");
+	};
 
-    const submitForm = () => {
-        // submit form on the basis of wether it is signup or login
-    }
+	const preventForms = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+	};
 
-
-
-    const changeForm = (e) => {
-        e.preventDefault();
-        let isLogin = !login;
-        setLogin(isLogin);
-    }
+	const changeForm = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		let isLogin = !login;
+		setLogin(isLogin);
+	};
 
 	return (
-		<div className="auth-quickview" onClick={closeAuth}>
-            <button onClick={changeForm}>{login ? "LOGIN" : "SIGNUP"}</button>
-            <div className="both-forms">
-                {login ? 
-                    <form className="auth-form" method="POST" onSubmit={submitForm}>
-                        <div className="auth-block">
-                            <label htmlFor="username">Username: </label><br />
-                            <input type="text" placeholder="Username" name="username" />
-                        </div>
-                        <div className="auth-block">
-                            <label htmlFor="password">Password: </label><br />
-                            <input type="password" placeholder="password" name="password" />
-                        </div>
-                        <button>Login</button>
-                    </form>
-                :
-                    <form className="auth-form" method="POST" onSubmit={submitForm}>
-                        <div className="auth-block">
-                            <label htmlFor="username">Email: </label><br />
-                            <input type="text" placeholder="email@email.com" name="Email" />
-                        </div>
-                        <div className="auth-block">
-                            <label htmlFor="password">Password: </label><br />
-                            <input type="password" placeholder="password" name="password" />
-                        </div>
-                        <div className="auth-block">
-                            <label htmlFor="password">Password: </label><br />
-                            <input type="password" placeholder="password" name="password" />
-                        </div>
-                        <button>Sign Up</button>
-                    </form>
-                }
-            </div>
+		<div className="auth-quickview hide-auth" onClick={closeAuth}>
+			<button onClick={changeForm}>{login ? "SIGNUP" : "LOGIN"}</button>
+			<div className="both-forms" onClick={preventForms}>
+				{login ? <Login /> : <Signup />}
+			</div>
 		</div>
 	);
 };
