@@ -4,7 +4,6 @@ const Signup = () => {
 	};
 	return (
 		<>
-			<button>Go To Login</button>
 			<form className="auth-form" method="POST" onSubmit={submitForm}>
 				<div className="auth-block">
 					<label htmlFor="username">Email: </label>

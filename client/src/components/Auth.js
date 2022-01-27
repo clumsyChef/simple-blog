@@ -23,8 +23,10 @@ const Auth = (props) => {
 
 	return (
 		<div className="auth-quickview hide-auth" onClick={closeAuth}>
-			<button onClick={changeForm}>{login ? "SIGNUP" : "LOGIN"}</button>
 			<div className="both-forms" onClick={preventForms}>
+				<button onClick={changeForm} className="switch-forms">
+					{login ? "SIGNUP" : "LOGIN"}
+				</button>
 				{login ? <Login /> : <Signup />}
 			</div>
 		</div>

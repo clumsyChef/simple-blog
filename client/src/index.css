@@ -47,7 +47,6 @@ code {
 
 .auth-form {
 	padding: 50px 100px;
-	border: 2px solid black;
 	background-color: white;
 	position: relative;
 }
@@ -72,9 +71,16 @@ code {
 
 .both-forms {
 	position: relative;
-	/* display: flex; */
+	border: 2px solid black;
+	background-color: white;
+	padding: 20px;
 }
 
 .hide-auth {
 	display: none;
+}
+
+.switch-forms {
+	padding: 10px;
+	font-size: 1.5rem;
 }

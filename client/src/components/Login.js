@@ -1,11 +1,13 @@
 const Login = () => {
-	const submitForm = () => {
-		//
+	const { login } = useContext(IsLogin);
+
+	const submitForm = (e) => {
+		e.preventDefault();
+		console.log("->", login);
 	};
 	return (
 		<>
-			<button>Go To Sign Up</button>
-			<form className="auth-form" method="POST" onSubmit={submitForm}>
+			<form className="auth-form">
 				<div className="auth-block">
 					<label htmlFor="username">Username: </label>
 					<br />
@@ -16,7 +18,7 @@ const Login = () => {
 					<br />
 					<input type="password" placeholder="password" name="password" />
 				</div>
-				<button>Login</button>
+				<button onClick={submitForm}>Login</button>
 			</form>
 		</>
 	);
