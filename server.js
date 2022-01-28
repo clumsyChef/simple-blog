@@ -17,12 +17,16 @@ app.use("/users", users);
 const blogs = require("./routes/blogs");
 app.use("/blogs", blogs);
 
+// Auth Routes
+const auth = require("./routes/auth");
+app.use("/auth", auth);
+
 /* ------- Require Routes End --------- */
 
 app.use((req, res) => {
-	res.status(404).json({ status: false });
+    res.status(404).json({ status: false });
 });
 
 app.listen(5000, () => {
-	console.log("CONNECTED");
+    console.log("CONNECTED");
 });
