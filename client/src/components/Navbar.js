@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Auth from "./Auth";
 
 const Navbar = () => {
@@ -10,7 +9,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<Link to="/">Home</Link>
-			<Link to="/blogs">My Blogs</Link>
+			<Link to="/blogs">All Blogs</Link>
 			<button onClick={getAuth}>Login/Signup</button>
 			<Auth />
 		</nav>

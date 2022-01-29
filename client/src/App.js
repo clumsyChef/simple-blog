@@ -3,20 +3,21 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
 const App = () => {
+	NodeList.prototype.__proto__ = Array.prototype;
 	return (
-        <>
-            <div className="container">
-                <BrowserRouter>
-                    <Navbar />
-                    <Routes>
-                        <Route path="/" element={<Home />}></Route>
-                        {/* <Route path="/" element={<Home />}></Route>
+		<>
+			<div className="container">
+				<BrowserRouter>
+					<Navbar />
+					<Routes>
+						<Route path="/" element={<Home />}></Route>
+						{/* <Route path="/" element={<Home />}></Route>
                         <Route path="/" element={<Home />}></Route> */}
-                    </Routes>
-                </BrowserRouter>
-            </div>
-	    </>
-    );
+					</Routes>
+				</BrowserRouter>
+			</div>
+		</>
+	);
 };
 
 export default App;
