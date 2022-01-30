@@ -4,7 +4,8 @@ const createUser = async (req, res) => {
 	const { email, username, password } = req.body;
 	const dataToSave = { email, username, password };
 	const userData = await User.create(dataToSave);
-	console.log(email, username, password);
+	console.log(userData);
+	// console.log(email, username, password);
 };
 
 const readUser = (req, res) => {

@@ -17,3 +17,11 @@ const commentSchema = mongoose.Schema({
 	postId: String, // ID of post which has this as a comment
 	body: String,
 });
+
+const allSchema = {
+	User: mongoose.model("User", userSchema),
+	Post: mongoose.model("Post", postSchema),
+	Comment: mongoose.model("Comment", commentSchema),
+};
+
+module.exports = allSchema;

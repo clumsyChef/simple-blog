@@ -1,8 +1,26 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+const Schemas = require("../schemas/Schemas");
 
-mongoose.connect;
+// mongoose.connect;
 
-const create = () => {};
+const create = async (dataToSave) => {
+	// Finding if email exists and insert only then.
+	return new Promise((resolve, reject) => {
+		Schemas.User.find({ email: dataToSave.email }, async (err, docs) => {
+			if (err) {
+				throw err;
+			}
+
+			if (docs.length > 0) {
+				resolve({ status: false, message: "User already exists." });
+			} else {
+				const user = new Schemas.User(dataToSave);
+				const saved = await user.save();
+				resolve({ status: true, message: "New user created" });
+			}
+		});
+	});
+};
 
 const read = () => {
 	//
