@@ -7,14 +7,14 @@ const userSchema = new mongoose.Schema({
 });
 
 const postSchema = new mongoose.Schema({
-	username: String, // Post Owner
+	userId: { type: mongoose.Schema.Types.ObjectId, ref: "userSchema" }, // Post Owner
 	title: String,
 	body: String,
 });
 
 const commentSchema = mongoose.Schema({
-	username: String, // Comment Owner
-	postId: String, // ID of post which has this as a comment
+	userId: { type: mongoose.Schema.Types.ObjectId, ref: "userSchema" }, // Comment Owner
+	postId: { type: mongoose.Schema.Types.ObjectId, ref: "postSchema" }, // ID of post which has this as a comment
 	body: String,
 });
 
