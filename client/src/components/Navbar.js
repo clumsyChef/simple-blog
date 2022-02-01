@@ -4,6 +4,7 @@ import Auth from "./Auth";
 const Navbar = () => {
 	const getAuth = () => {
 		document.querySelector(".hide-auth").classList.remove("hide-auth");
+		document.body.style.overflow = "hidden";
 	};
 
 	return (

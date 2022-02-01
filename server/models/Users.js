@@ -6,19 +6,33 @@ const Schemas = require("../schemas/Schemas");
 const create = async (dataToSave) => {
 	// Finding if email exists and insert only then.
 	return new Promise((resolve, reject) => {
-		Schemas.User.find({ email: dataToSave.email }, async (err, docs) => {
-			if (err) {
-				throw err;
-			}
-
-			if (docs.length > 0) {
-				resolve({ status: false, message: "User already exists." });
-			} else {
-				const user = new Schemas.User(dataToSave);
-				const saved = await user.save();
-				resolve({ status: true, message: "New user created" });
+		let allCreds = true;
+		Object.values(dataToSave).forEach((elem, index) => {
+			if (!elem || elem.length < 1) {
+				allCreds = false;
+				resolve({ status: false, message: "incomplete" });
 			}
 		});
+
+		if (allCreds) {
+			Schemas.User.find({ email: dataToSave.email }, async (err, docs) => {
+				if (err) {
+					// console.log(err);
+					resolve({ status: false, message: "invalid_credentials" });
+					throw err;
+				}
+
+				if (docs.length > 0) {
+					resolve({ status: false, message: "user_exists" });
+				} else if (docs.length === 0) {
+					const user = new Schemas.User(dataToSave);
+					const saved = await user.save();
+					resolve({ status: true, message: "New user created" });
+				} else {
+					reject({ status: false, message: "unknown" });
+				}
+			});
+		}
 	});
 };
 
