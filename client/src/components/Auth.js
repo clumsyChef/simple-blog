@@ -6,7 +6,6 @@ const Auth = (props) => {
 	const [login, setLogin] = useState(true);
 
 	const closeAuth = (e) => {
-		console.log("HEY HEY");
 		e.target.classList.add("hide-auth");
 		document.body.style.overflow = "none";
 	};
