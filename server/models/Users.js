@@ -1,5 +1,6 @@
 // const mongoose = require("mongoose");
 const Schemas = require("../schemas/Schemas");
+const bcrypt = require("bcryptjs");
 
 // mongoose.connect;
 
@@ -17,7 +18,6 @@ const create = async (dataToSave) => {
 		if (allCreds) {
 			Schemas.User.find({ email: dataToSave.email }, async (err, docs) => {
 				if (err) {
-					// console.log(err);
 					resolve({ status: false, message: "invalid_credentials" });
 					throw err;
 				}
@@ -25,6 +25,8 @@ const create = async (dataToSave) => {
 				if (docs.length > 0) {
 					resolve({ status: false, message: "user_exists" });
 				} else if (docs.length === 0) {
+					const { password } = dataToSave;
+					dataToSave["password"] = bcrypt.hashSync(password, 10);
 					const user = new Schemas.User(dataToSave);
 					const saved = await user.save();
 					resolve({ status: true, message: "New user created" });
