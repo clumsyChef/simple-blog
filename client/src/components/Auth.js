@@ -6,6 +6,7 @@ const Auth = (props) => {
 	const [login, setLogin] = useState(true);
 
 	const closeAuth = (e) => {
+		document.querySelector(".both-forms").classList.remove("signed-success");
 		e.target.classList.add("hide-auth");
 		document.body.style.overflow = "none";
 	};
@@ -18,6 +19,7 @@ const Auth = (props) => {
 	const changeForm = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
+		document.querySelector(".both-forms").classList.remove("signed-success");
 		let isLogin = !login;
 		setLogin(isLogin);
 	};

@@ -25,10 +25,11 @@ const create = async (dataToSave) => {
 				if (docs.length > 0) {
 					resolve({ status: false, message: "user_exists" });
 				} else if (docs.length === 0) {
+					// HASH the password for safety
 					const { password } = dataToSave;
 					dataToSave["password"] = bcrypt.hashSync(password, 10);
 					const user = new Schemas.User(dataToSave);
-					const saved = await user.save();
+					await user.save();
 					resolve({ status: true, message: "New user created" });
 				} else {
 					reject({ status: false, message: "unknown" });
