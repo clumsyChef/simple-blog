@@ -88,3 +88,7 @@ code {
 .signed-success {
 	background-color: rgb(217, 255, 114);
 }
+
+.signed-failure {
+	background-color: rgb(255, 114, 114);
+}
