@@ -50,7 +50,7 @@ const read = (loginData) => {
 		});
 
 		if (allCreds) {
-			Schemas.User.find({ email: loginData.email }, async (err, docs) => {
+			Schemas.User.findOne({ email: loginData.email }, async (err, docs) => {
 				if (err) {
 					resolve({ status: false, message: "unknown" });
 				}
@@ -58,10 +58,10 @@ const read = (loginData) => {
 				if (docs.length === 0) {
 					resolve({ status: false, message: "not found" });
 				} else {
-					const thisUser = docs[0];
+					const thisUser = docs;
 					const passwordMatches = bcrypt.compareSync(loginData.password, thisUser["password"]);
 					if (passwordMatches) {
-						resolve({ status: true, message: "User Found", thisUser });
+						resolve({ status: true, user: thisUser });
 					} else {
 						resolve({ status: false, message: "not exists" });
 					}

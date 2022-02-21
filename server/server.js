@@ -8,6 +8,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// cookies
+
 // Connection to mongoose
 mongoose.connect(
 	"mongodb://localhost/blog-db",
