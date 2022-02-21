@@ -14,6 +14,7 @@ const createUser = async (req, res) => {
 const readUser = async (req, res) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	try {
 		const { email, password } = req.body;
 		const userToLogin = { email, password };
@@ -33,6 +34,8 @@ const readUser = async (req, res) => {
 =======
 =======
 >>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
+=======
+>>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
     try {
         const { email, password } = req.body;
         const userToLogin = { email, password };
@@ -47,6 +50,9 @@ const readUser = async (req, res) => {
         res.status(404).send(err);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
+=======
 >>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
 =======
 >>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43

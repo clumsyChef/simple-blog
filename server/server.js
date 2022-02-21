@@ -21,8 +21,11 @@ app.use(function (req, res, next) {
     next();
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // cookies
+=======
+>>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
 =======
 >>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
 

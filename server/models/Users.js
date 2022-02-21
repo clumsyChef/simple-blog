@@ -51,6 +51,7 @@ const read = (loginData) => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if (allCreds) {
 			Schemas.User.findOne({ email: loginData.email }, async (err, docs) => {
 				if (err) {
@@ -86,6 +87,14 @@ const read = (loginData) => {
                 }
 
 >>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
+=======
+        if (allCreds) {
+            Schemas.User.find({ email: loginData.email }, async (err, docs) => {
+                if (err) {
+                    resolve({ status: false, message: "unknown" });
+                }
+
+>>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
                 if (docs.length === 0) {
                     resolve({ status: false, message: "error" });
                 } else {
@@ -101,6 +110,9 @@ const read = (loginData) => {
         }
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
+=======
 >>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
 =======
 >>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
