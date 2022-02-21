@@ -20,8 +20,11 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+<<<<<<< HEAD
 
 // cookies
+=======
+>>>>>>> 1bbcb28bd68f846dbc95df029f6c75d14fb99f43
 
 // Connection to mongoose
 mongoose.connect(
