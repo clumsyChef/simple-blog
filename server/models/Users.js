@@ -1,6 +1,7 @@
 // const mongoose = require("mongoose");
 const Schemas = require("../schemas/Schemas");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 // mongoose.connect;
 
@@ -61,7 +62,8 @@ const read = (loginData) => {
 					const thisUser = docs;
 					const passwordMatches = bcrypt.compareSync(loginData.password, thisUser["password"]);
 					if (passwordMatches) {
-						resolve({ status: true, user: thisUser });
+						const token = jwt.sign({ email: thisUser.email }, "hello");
+						resolve({ status: true, user: thisUser, token });
 					} else {
 						resolve({ status: false, message: "not exists" });
 					}
