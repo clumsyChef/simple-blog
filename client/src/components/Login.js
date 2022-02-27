@@ -1,7 +1,10 @@
 import axios from "axios";
-// import { useState } from "react";
+// import { useCookies } from "react";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
+	const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+
 	const submitForm = (e) => {
 		e.preventDefault();
 		const [email, password] = [
@@ -22,6 +25,10 @@ const Login = () => {
 			.then((response) => {
 				if (response.status === 200) {
 					if (response.data.status) {
+						let loginToken = response.data.token;
+						let expires = new Date();
+						expires.setTime(expires.getTime() + 60 * 60 * 1000);
+						setCookie("access_token", loginToken, { path: "/", expires });
 						console.log("DATA -> ", response.data.user, response.data.token);
 					} else {
 						if (response.data.message === "error") {
