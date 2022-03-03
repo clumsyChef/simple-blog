@@ -29,6 +29,7 @@ const Login = () => {
 						let expires = new Date();
 						expires.setTime(expires.getTime() + 60 * 60 * 1000);
 						setCookie("access_token", loginToken, { path: "/", expires });
+                        document.querySelector(".auth-quickview").classList.add("hide-auth"); 
 						console.log("DATA -> ", response.data.user, response.data.token);
 					} else {
 						if (response.data.message === "error") {
