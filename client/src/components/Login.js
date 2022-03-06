@@ -1,10 +1,13 @@
 import axios from "axios";
 // import { useCookies } from "react";
 import { useCookies } from "react-cookie";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const Login = () => {
 	const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
-
+	const userContext = useContext(UserContext);
+	console.log(userContext);
 	const submitForm = (e) => {
 		e.preventDefault();
 		const [email, password] = [
@@ -29,7 +32,7 @@ const Login = () => {
 						let expires = new Date();
 						expires.setTime(expires.getTime() + 60 * 60 * 1000);
 						setCookie("access_token", loginToken, { path: "/", expires });
-                        document.querySelector(".auth-quickview").classList.add("hide-auth"); 
+						document.querySelector(".auth-quickview").classList.add("hide-auth");
 						console.log("DATA -> ", response.data.user, response.data.token);
 					} else {
 						if (response.data.message === "error") {
