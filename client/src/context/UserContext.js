@@ -3,18 +3,18 @@ import { createContext, useState } from "react";
 export const UserContext = createContext();
 
 const UserState = (props) => {
-    const state = {
-        authenticated: false,
-    };
+	const state = {
+		authenticated: false,
+	};
 
-    const [userData, setUserData] = useState(state);
+	const [userData, setUserData] = useState(state);
 
-    const update = (newData) => {
-        let finalData = { ...state, ...newData };
-        setUserData(finalData);
-    };
+	const update = (newData) => {
+		let finalData = { ...state, ...newData };
+		setUserData(finalData);
+	};
 
-    return <UserContext.Provider value={{ userData, update }}>{props.children}</UserContext.Provider>;
+	return <UserContext.Provider value={{ userData, update }}>{props.children}</UserContext.Provider>;
 };
 
 export default UserState;

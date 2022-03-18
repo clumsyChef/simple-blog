@@ -16,14 +16,6 @@ const readUser = async (req, res) => {
 		const { email, password } = req.body;
 		const userToLogin = { email, password };
 		const loginData = await User.read(userToLogin);
-		console.log(loginData);
-		// let userEmail = loginData.email;
-		// if (loginData.status) {
-		// 	console.log("setting cookies");
-		// 	res.cookie("token", userEmail, {
-		// 		httpOnly: false, // try this
-		// 	});
-		// }
 		res.status(200).send(loginData);
 	} catch (err) {
 		res.status(404).send(err);
