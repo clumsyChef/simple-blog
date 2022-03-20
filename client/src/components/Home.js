@@ -9,6 +9,18 @@ const Home = () => {
 	const userContext = useContext(UserContext);
 	const { access_token } = cookies;
 	console.log(access_token);
+	if (access_token) {
+		axios
+			.post("http://localhost:5000/users/logged", {
+				access_token,
+			})
+			.then((result) => {
+				console.log(result);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
 
 	return (
 		<div>

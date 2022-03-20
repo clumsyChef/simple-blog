@@ -22,6 +22,16 @@ const readUser = async (req, res) => {
 	}
 };
 
+const loggedUser = async (req, res) => {
+	try {
+		const access_token = req.body;
+		const userData = await User.logged(access_token);
+		console.log(userData);
+	} catch (err) {
+		//
+	}
+};
+
 const updateUser = (req, res) => {
 	//
 };
@@ -30,4 +40,4 @@ const removeUser = (req, res) => {
 	//
 };
 
-module.exports = { createUser, readUser, updateUser, removeUser };
+module.exports = { createUser, readUser, updateUser, removeUser, loggedUser };

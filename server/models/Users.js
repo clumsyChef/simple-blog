@@ -62,7 +62,7 @@ const read = (loginData) => {
 					const thisUser = docs;
 					const passwordMatches = bcrypt.compareSync(loginData.password, thisUser["password"]);
 					if (passwordMatches) {
-						const token = jwt.sign({ email: thisUser.email }, "hello");
+						const token = jwt.sign({ email: thisUser.email, password: loginData.password }, "hello");
 						resolve({ status: true, user: thisUser, token });
 					} else {
 						resolve({ status: false, message: "not exists" });
@@ -73,6 +73,15 @@ const read = (loginData) => {
 	});
 };
 
+const logged = async (loggedCookie) => {
+	var decoded = jwt.verify(loggedCookie.access_token, "hedllo");
+	if (decoded) {
+		console.log("Hai");
+	} else {
+		console.log("NOPE");
+	}
+};
+
 const update = () => {
 	//
 };
@@ -81,4 +90,4 @@ const remove = () => {
 	//
 };
 
-module.exports = { create, read, update, remove };
+module.exports = { create, read, update, remove, logged };
